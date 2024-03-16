@@ -1,7 +1,33 @@
-
+import { useState } from "react";
+// import firebase from "@/firebase/app";
+// import "firebase/auth";
 
 
 export default function Login() {
+    const [input, setInput] = useState({
+        email: "",
+        password: "",
+    });
+
+    const handleInputChange = (target) => {
+        setInput((prev) => ({
+            ...prev,
+            [target.type]: target.value
+    }))
+    };
+
+    const handleSignIn = async (e) => {
+        e.preventDefault();
+        // try {
+        //     await firebase.auth().signInWithEmailAndPassword(input.email, input.password);
+        //     console.log("User signed in successfully");
+        //     // You can redirect the user to another page upon successful login
+        // } catch (error) {
+        //     console.error("Error signing in:", error);
+        //     // Handle error (e.g., display error message to the user)
+        // }
+    };
+
 
     return (
         <div>
@@ -17,7 +43,7 @@ export default function Login() {
                     <form
                         action="#"
                         className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
-
+                        onSubmit={(e) => handleSignIn(e)}
                     >
                         <p className="text-center text-lg font-medium">
                             Log in to your account
@@ -32,8 +58,7 @@ export default function Login() {
                                     type="email"
                                     className="w-full rounded-lg border p-4 pe-12 text-sm shadow-sm"
                                     placeholder="Enter email"
-
-                                    onChange={(e) => setEmail(e.target.value)}
+                                    onChange={(e) => handleInputChange(e.target)}
                                 />
                                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
                                     <svg
@@ -63,8 +88,7 @@ export default function Login() {
                                     type="password"
                                     className="w-full rounded-lg border p-4 pe-12 text-sm shadow-sm"
                                     placeholder="Enter password"
-                                    
-                                    onChange={(e) => setPassword(e.target.value)}
+                                    onChange={(e) => handleInputChange(e.target)}
                                 />
                                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
                                     <svg
@@ -91,7 +115,7 @@ export default function Login() {
                             </div>
                             <div>
                                 <a
-                                    href="reset-password"
+                                    href="/reset-password"
                                     className="block text-right text-sm text-indigo-600"
                                 >
                                     Forgot password?
@@ -115,7 +139,7 @@ export default function Login() {
 
                         <p className="text-center text-sm text-gray-500">
                             No account?{" "}
-                            <a className="underline" href="/sign-up">Register</a>
+                            <a className="underline" href="/register">Register</a>
                         </p>
                     </form>
                 </div>
@@ -124,3 +148,4 @@ export default function Login() {
         </div>
     );
 }
+

@@ -9,10 +9,10 @@ export default function AboutUs() {
             <Navbar />
             <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
                 <div className="mx-auto  text-center">
-                    <h2 className="text-3xl  font-bold sm:text-4xl">Fueling connections, forging partnerships</h2>
+                    <h2 className="text-3xl  font-bold sm:text-4xl">Empowering Efficiency, Enhancing Connections</h2>
 
                     <p className="mt-10 mx-auto text-lg max-w-md text-gray-550">
-                        We're the catalyst for collaborative success in the world of issuers and vendors. Ignite your business journey with us!
+                        Streamlined scheduling, automated communication, real-time coding assessment, customizable templates, and seamless integration.
                     </p>
                 </div>
 
@@ -26,7 +26,7 @@ export default function AboutUs() {
                         <h2 className="mt-4 text-xl font-bold text-black">Our Mission</h2>
 
                         <p className="mt-1  text-sm text-gray-600">
-                            At ServiMatch, we're transforming connections between service issuers and contractors. Our seamless platform streamlines project discovery, bidding, and completion, empowering businesses and individuals to reach their goals effortlessly
+                            Our interview platform signifies a transformative approach to interviews, delivering unmatched convenience, transparency, and security. We are committed to empowering companies to conduct more effective and efficient interviews, fostering better hiring decisions and long-term success.
                         </p>
                     </p>
 
@@ -39,7 +39,7 @@ export default function AboutUs() {
                         <h2 className="mt-4 text-xl font-bold text-black">Our Vision</h2>
 
                         <p className="mt-1 text-sm text-gray-600">
-                            Empowering seamless connections, driving efficiency, and fostering unparalleled success. We're revolutionizing service connections worldwide with innovative technology and unwavering excellence.
+                            To revolutionize hiring by reducing time-to-hire, improving candidate experience, and setting a new industry standard for recruitment efficiency with our innovative interview platform.
                         </p>
                     </p>
 
@@ -49,10 +49,10 @@ export default function AboutUs() {
                     >
                         <img src="https://res.cloudinary.com/dx7uxfrne/image/upload/v1708870760/assets/key-performance-indicator_leqghi.png" alt="img" />
 
-                        <h2 className="mt-4 text-xl font-bold text-black">Efficient Project Management</h2>
+                        <h2 className="mt-4 text-xl font-bold text-black">Effortless Scheduling</h2>
 
                         <p className="mt-1 text-sm text-gray-600">
-                            ServiMatch simplifies project management with a streamlined process that ensures efficiency and transparency, empowering seamless collaboration and delivering exceptional results.
+                            Our platform streamlines the interview scheduling process, empowering recruiters to efficiently schedule multiple interviews simultaneously. Simply upload Excel files with candidate data to get started.
                         </p>
                     </p>
 
@@ -62,10 +62,10 @@ export default function AboutUs() {
                     >
                         <img src="https://res.cloudinary.com/dx7uxfrne/image/upload/v1708870761/assets/heart_dkg2zs.png" alt="img" />
 
-                        <h2 className="mt-4 text-xl font-bold text-black">Efficient Matchmaking</h2>
+                        <h2 className="mt-4 text-xl font-bold text-black">Real-Time Coding Assessment</h2>
 
                         <p className="mt-1 text-sm text-gray-600">
-                            ServiMatch excels in swiftly pairing issuers with contractors, ensuring seamless collaboration and timely project execution, fostering optimal outcomes for all stakeholders.
+                            Our platform revolutionizes the interview process by offering a built-in compiler. Candidates can demonstrate their coding skills directly on-screen, while recruiters can observe and edit the code in real-time, fostering collaboration and enhancing assessment efficiency.
                         </p>
                     </p>
 
@@ -75,10 +75,10 @@ export default function AboutUs() {
                     >
                         <img src="https://res.cloudinary.com/dx7uxfrne/image/upload/v1708870768/assets/visibility_kx9pdl.png" alt="img" />
 
-                        <h2 className="mt-4 text-xl font-bold text-black">Transparent Bidding, Pricing</h2>
+                        <h2 className="mt-4 text-xl font-bold text-black">Seamless Integration</h2>
 
                         <p className="mt-1 text-sm text-gray-600">
-                            Experience the power of instant bidding and crystal-clear pricing structures. At ServiMatch, we ensure transparency and efficiency, empowering you with real-time insights for confident decision-making.
+                            Our platform effortlessly integrates with leading HR management systems, providing recruiters with centralized access to candidate data and interview insights, streamlining the recruitment process.
                         </p>
                     </p>
 
@@ -91,21 +91,21 @@ export default function AboutUs() {
                         <h2 className="mt-4 text-xl font-bold text-black">Seamless Support</h2>
 
                         <p className="mt-1 text-sm text-gray-600">
-                            At ServiMatch, our dedicated support team is committed to ensuring every interaction is smooth and hassle-free. From start to finish, we're here to provide unparalleled assistance, guaranteeing a seamless experience for all our users.
+                            Providing unparalleled assistance and guidance to ensure a smooth user experience.
                         </p>
                     </p>
                 </div>
 
                 <div className="mt-12 text-center">
-                    <Link to={"/sign-up"}><p
+                    <Link to={"/register"}><p
 
-                        className="inline-block rounded bg-violet-600 px-12 py-3 text-md font-medium text-white transition hover:bg-blue-800 focus:outline-none focus:ring focus:ring-yellow-400"
+                        className="inline-block rounded bg-green-600 px-12 py-3 text-md font-medium text-white transition hover:bg-green-800 focus:outline-none focus:ring focus:ring-yellow-400"
                     >
                         Get Started Today
                     </p></Link>
                 </div>
             </div>
-            <footer class="bg-violet-600 text-white text-center py-4">
+            <footer class="bg-green-600 text-white text-center py-4">
                 <p className='text-lg text-center p-1  '>Alpha-Byte@2024</p>
             </footer>
         </section>

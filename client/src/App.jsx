@@ -9,7 +9,6 @@ import Home from "./Pages/Room/Home";
 import EditorPage from "./Pages/Room/EditorPage";
 import "./App.css";
 
-
  export default function App() {
    return (
     <>
@@ -31,6 +30,9 @@ import "./App.css";
           <Route path="/register" element={<Register />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/editor" element={<Editor />} />
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/editor/:roomId" element={<EditorPage />}></Route>
+          <Route path="/interviewer-form" element={<Form/>} />
        </Routes>
      </Router>
 </>

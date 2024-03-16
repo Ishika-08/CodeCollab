@@ -1,8 +1,15 @@
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import Editor from './Pages/Editor/Editor'
+import LandingPage from './Pages/LandingPage/LandingPage'
+
 function App() {
   return (
-    <div>
-      <h1 className="bg-red-500">App</h1>
-    </div>
+   <Router>
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/editor" element={<Editor />} />
+    </Routes>
+   </Router>
   )
 }
 

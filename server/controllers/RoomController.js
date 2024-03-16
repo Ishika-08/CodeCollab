@@ -55,7 +55,7 @@
 // };
 
 
-const ACTIONS = require('./Actions');
+const ACTIONS = require('../routes/Actions');
 
 const userSocketMap = {};
 

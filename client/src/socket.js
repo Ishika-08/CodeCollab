@@ -7,5 +7,10 @@ export const initSocket = async () => {
         timeout: 10000,
         transports: ['websocket'],
     };
-    return io(process.env.REACT_APP_BACKEND_URL, options);
+    const backendUrl = 'http://localhost:5000';
+    console.log('backendUrl', backendUrl);
+    if (!backendUrl) {
+        throw new Error('REACT_APP_BACKEND_URL is not defined in the environment.');
+    }
+    return io(backendUrl, options);
 };

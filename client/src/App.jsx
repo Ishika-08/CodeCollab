@@ -4,7 +4,14 @@ import Register from "./Pages/register";
 import ResetPassword from "./Pages/resetPassword";
 import LandingPage from "./pages/landingPage";
 import AboutUs from "./components/landingpage/AboutUs";
+
+
 import Editor from "./Pages/Editor/Editor";
+import { Toaster } from 'react-hot-toast';
+import Home from "./Pages/Room/Home";
+import EditorPage from "./Pages/Room/EditorPage";
+import "./App.css";
+
 import Form  from './pages/form'
 import { Toaster } from 'react-hot-toast';
 import Home from "./Pages/Room/Home";

@@ -43,8 +43,10 @@ export default function hero() {
                         </a>
                     </div>
                 </div>
-                <div className="w-[50%]">
-                    <img className=" w-full mt-[-185px] ml-[235px] " src="public\images\interview.jpg" alt="interview-img" />
+
+
+                <div >
+                    <img className=" h-[640px]  w-[700px]  mt-[-185px] ml-[235px] " src="public\images\interview.jpg" alt="interview-img" />
                 </div>
             </div>
         </section>

@@ -1,7 +1,10 @@
+
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../firebase/firebase";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/landingpage/Navbar";
+
 
 
 export default function Login() {
@@ -9,6 +12,7 @@ export default function Login() {
         email: "",
         password: "",
     });
+
 
     const navigate = useNavigate();
 
@@ -18,6 +22,7 @@ export default function Login() {
             [target.type]: target.value
     }))
     };
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -33,12 +38,13 @@ export default function Login() {
     }
 
 
+
     return (
         <div>
-            
+            <Navbar />
             <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-lg">
-                    <h1 className="text-center text-2xl font-bold text-violet-600 sm:text-3xl">Welcome back</h1>
+                    <h1 className="text-center text-2xl font-bold text-green-600 sm:text-3xl">Welcome back</h1>
 
                     <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
                         Ready to step into the coding arena? Log in to CodeCollab and let your skills shine in your next interview!
@@ -47,7 +53,9 @@ export default function Login() {
                     <form
                         action="#"
                         className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
+
                         onSubmit={handleSubmit}
+
                     >
                         <p className="text-center text-lg font-medium">
                             Log in to your account
@@ -119,6 +127,7 @@ export default function Login() {
                             </div>
                             <div>
                                 <a
+
                                     href="/reset-password"
                                     className="block text-right text-sm text-indigo-600"
                                 >
@@ -133,7 +142,7 @@ export default function Login() {
                         <div>
                             <button
                                 type="submit"
-                                className="block w-full rounded-lg bg-violet-600 px-5 py-3 text-sm font-medium text-white"
+                                className="block w-full rounded-lg bg-green-600 px-5 py-3 text-sm font-medium text-white"
                             >
                                 Log in
 

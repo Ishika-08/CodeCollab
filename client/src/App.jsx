@@ -13,7 +13,7 @@ import Form  from './pages/form'
           <Route path="/register" element={<Register />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/editor" element={<Editor />} />
-          <Route path="/form" element={<Form/>} />
+          <Route path="/interviewer-form" element={<Form/>} />
        </Routes>
      </Router>
 

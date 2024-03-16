@@ -1,16 +1,20 @@
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import Editor from './Pages/Editor/Editor'
-import LandingPage from './Pages/LandingPage/LandingPage'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./pages/login";
+import Register from "./pages/register";
+import ResetPassword from "./pages/resetPassword";
+import Editor from "./Pages/Editor/Editor";
 
-function App() {
-  return (
-   <Router>
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/editor" element={<Editor />} />
-    </Routes>
-   </Router>
-  )
-}
+ export default function App() {
+   return (
+     <Router>
+       <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/editor" element={<Editor />} />
+       </Routes>
+     </Router>
 
-export default App
+   );
+  }
+

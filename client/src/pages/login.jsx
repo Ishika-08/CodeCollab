@@ -1,6 +1,7 @@
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-// import firebase from "@/firebase/app";
-// import "firebase/auth";
+import { auth } from "../firebase/firebase";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Login() {
@@ -9,6 +10,8 @@ export default function Login() {
         password: "",
     });
 
+    const navigate = useNavigate();
+
     const handleInputChange = (target) => {
         setInput((prev) => ({
             ...prev,
@@ -16,17 +19,18 @@ export default function Login() {
     }))
     };
 
-    const handleSignIn = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        // try {
-        //     await firebase.auth().signInWithEmailAndPassword(input.email, input.password);
-        //     console.log("User signed in successfully");
-        //     // You can redirect the user to another page upon successful login
-        // } catch (error) {
-        //     console.error("Error signing in:", error);
-        //     // Handle error (e.g., display error message to the user)
-        // }
-    };
+        signInWithEmailAndPassword(auth, input.email, input.password)
+        .then((userCredential) => {
+           console.log(userCredential);
+            navigate("/");
+        }).catch((error) => {
+            alert(error.message)
+        });
+
+        console.log(input);
+    }
 
 
     return (
@@ -43,7 +47,7 @@ export default function Login() {
                     <form
                         action="#"
                         className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
-                        onSubmit={(e) => handleSignIn(e)}
+                        onSubmit={handleSubmit}
                     >
                         <p className="text-center text-lg font-medium">
                             Log in to your account

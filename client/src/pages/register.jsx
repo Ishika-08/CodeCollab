@@ -1,9 +1,40 @@
-
+import { useState } from "react";
+import {auth} from "../firebase/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import {useNavigate} from "react-router-dom";
 
 export default function Register() {
+    const [input, setInput] = useState({
+        name: "",
+        email: "",
+        password: "",
+    });
+
+    const navigate = useNavigate();
+
+    const handleInputChange = (e) => {  
+        setInput((prev) => ({
+            ...prev,
+            [e.target.name]: e.target.value,
+        }));
+        console.log(input)
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        createUserWithEmailAndPassword(auth, input.email, input.password)
+        .then((userCredential) => {
+           console.log(userCredential);
+            navigate("/");
+        }).catch((error) => {
+            console.log(error)
+        });
+
+        console.log(input);
+    }
+
     return (
         <div>
-
             <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-lg">
                     <h1 className="text-center text-2xl font-bold text-violet-600 sm:text-3xl">Welcome back</h1>
@@ -15,7 +46,7 @@ export default function Register() {
                     <form
                         action="#"
                         className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
-
+                        onSubmit={handleSubmit}
                     >
                         <p className="text-center text-lg font-medium">
                             Log in to your account
@@ -28,8 +59,10 @@ export default function Register() {
                             <div className="relative">
                                 <input
                                     type="text"
+                                    name="name"
                                     className="w-full rounded-lg border p-4 pe-12 text-sm shadow-sm"
                                     placeholder="Enter Name"
+                                    onChange={(e) => {handleInputChange(e)}}
                                 />
 
                             </div>
@@ -41,10 +74,10 @@ export default function Register() {
                             <div className="relative">
                                 <input
                                     type="email"
+                                    name="email"
                                     className="w-full rounded-lg border p-4 pe-12 text-sm shadow-sm"
                                     placeholder="Enter email"
-
-                                    onChange={(e) => setEmail(e.target.value)}
+                                    onChange={(e) => {handleInputChange(e)}}
                                 />
                                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
                                     <svg
@@ -74,8 +107,8 @@ export default function Register() {
                                     type="password"
                                     className="w-full rounded-lg border p-4 pe-12 text-sm shadow-sm"
                                     placeholder="Enter password"
-
-                                    onChange={(e) => setPassword(e.target.value)}
+                                    name="password"
+                                    onChange={(e) => {handleInputChange(e)}}
                                 />
                                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
                                     <svg

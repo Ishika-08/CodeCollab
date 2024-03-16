@@ -1,6 +1,22 @@
+import { useState } from "react";
+import { auth } from "../firebase/firebase";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 
 export default function ResetPassword() {
+    const [email, setEmail] = useState("");
+    const navigate = useNavigate();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                navigate("/login");
+            })
+            .catch((error) => {
+                alert(error.message);
+            });
+    };
     return (
         <div>
 
@@ -15,7 +31,7 @@ export default function ResetPassword() {
                     <form
                         action="#"
                         className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
-
+                        onSubmit={handleSubmit}
                     >
 
                         <div>

@@ -15,16 +15,16 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
     const editorRef = useRef(null);
     useEffect(() => {
         async function init() {
-            editorRef.current = Codemirror.fromTextArea(
-                document.getElementById('realtimeEditor'),
-                {
-                    extension: [javascript({ jsx: true })],
-                    theme: 'abcdef',
-                    autoCloseTags: true,
-                    autoCloseBrackets: true,
-                    lineNumbers: true,
-                }
-            );
+            // editorRef.current = Codemirror.fromTextArea(
+            //     document.getElementById('realtimeEditor'),
+            //     {
+            //         extension: [javascript({ jsx: true })],
+            //         theme: 'abcdef',
+            //         autoCloseTags: true,
+            //         autoCloseBrackets: true,
+            //         lineNumbers: true,
+            //     }
+            // );
 
             editorRef.current.on('change', (instance, changes) => {
                 const { origin } = changes;

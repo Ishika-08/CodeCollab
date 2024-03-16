@@ -3,6 +3,7 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import ResetPassword from "./pages/resetPassword";
 import Editor from "./Pages/Editor/Editor";
+import Form  from './pages/form'
 
  export default function App() {
    return (
@@ -12,6 +13,7 @@ import Editor from "./Pages/Editor/Editor";
           <Route path="/register" element={<Register />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/editor" element={<Editor />} />
+          <Route path="/form" element={<Form/>} />
        </Routes>
      </Router>
 

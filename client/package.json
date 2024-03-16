@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+   
+    "@heroicons/react": "^2.1.1",
     "@codemirror/lang-python": "^6.1.4",
     "@headlessui/react": "^1.7.18",
     "@uiw/codemirror-theme-abcdef": "^4.21.24",

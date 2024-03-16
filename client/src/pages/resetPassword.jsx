@@ -6,7 +6,7 @@ export default function ResetPassword() {
 
             <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-lg">
-                    <h1 className="text-center text-2xl font-bold text-violet-600 sm:text-3xl">Reset Password</h1>
+                    <h1 className="text-center text-2xl font-bold text-green-600 sm:text-3xl">Reset Password</h1>
 
                     <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
                         Forgotten your password? Enter your e-mail address below, and we'll send you an e-mail allowing you to reset it.
@@ -20,7 +20,7 @@ export default function ResetPassword() {
 
                         <div>
                             <label htmlFor="email" className="sr-only"></label>
-                            <p className="text-violet-800 my-2 text-md">Your Email</p>
+                            <p className="text-green-800 my-2 text-md">Your Email</p>
                             <div className="relative">
                                 <input
                                     type="email"
@@ -51,7 +51,7 @@ export default function ResetPassword() {
                         <div>
                             <button
                                 type="submit"
-                                className="block w-full rounded-lg bg-violet-600 px-5 py-3 text-sm font-medium text-white"
+                                className="block w-full rounded-lg bg-green-600 px-5 py-3 text-sm font-medium text-white"
                             >
                                 Reset Password
 

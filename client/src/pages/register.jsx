@@ -1,12 +1,14 @@
+import { Nav } from "react-bootstrap";
+import Navbar from "../components/landingpage/Navbar";
 
 
 export default function Register() {
     return (
         <div>
-
+            <Navbar />
             <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-lg">
-                    <h1 className="text-center text-2xl font-bold text-violet-600 sm:text-3xl">Welcome back</h1>
+                    <h1 className="text-center text-2xl font-bold text-green-600 sm:text-3xl">Welcome back</h1>
 
                     <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
                         Ready to step into the coding arena? Log in to CodeCollab and let your skills shine in your next interview!
@@ -109,7 +111,7 @@ export default function Register() {
                         <div>
                             <button
                                 type="submit"
-                                className="block w-full rounded-lg bg-violet-600 px-5 py-3 text-sm font-medium text-white"
+                                className="block w-full rounded-lg bg-green-600 px-5 py-3 text-sm font-medium text-white"
                             >
                                 Register
 

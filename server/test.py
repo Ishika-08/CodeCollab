@@ -1,1 +1,3 @@
-fhwiureg
+
+print(1 + 2)
+

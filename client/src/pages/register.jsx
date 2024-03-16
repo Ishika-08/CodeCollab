@@ -29,7 +29,7 @@ export default function Register() {
         createUserWithEmailAndPassword(auth, input.email, input.password)
         .then((userCredential) => {
            console.log(userCredential);
-            navigate("/");
+            navigate("/dashboard");
         }).catch((error) => {
             console.log(error)
         });

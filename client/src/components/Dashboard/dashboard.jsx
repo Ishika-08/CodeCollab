@@ -1,7 +1,18 @@
 import Navbar from "./Navbar";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Dashboard() {
+    const navigate = useNavigate();
+
+    const handleSchedule = () => {
+        navigate("/interviewer-form");
+    }
+
+    const handleCreate = () => {
+        navigate("/room");
+    }
+
     return (
         <div>
             <Navbar />
@@ -18,7 +29,7 @@ export default function Dashboard() {
                         <h1 className="text-xl text-gray-800"><b>Schedule New Interview</b></h1>
                         <p className="text-gray-500">
                             Join us in shaping the future of your career. Let's schedule your next interview and take the next step towards finding your perfect fit.</p>
-                        <button className="bg-green-500/[.8] text-white p-1 ml-[80%] mb-[1.5%] rounded-md my-[3%]">Schedule</button>
+                        <button className="bg-green-500/[.8] text-white p-1 ml-[80%] mb-[1.5%] rounded-md my-[3%]" onClick={handleSchedule}>Schedule</button>
 
                     </div>
 
@@ -34,7 +45,8 @@ export default function Dashboard() {
                         <h1 className="text-xl text-gray-800"><b>Start An Instant Meet</b></h1>
                         <p className="text-gray-500">
                             Meet your match: where hiring great candidates meets great goods.</p>
-                        <button className="bg-green-500/[.8] text-white p-1 ml-[80%] mb-[1.5%] rounded-md my-[3%]">Create</button>
+                        <button className="bg-green-500/[.8] text-white p-1 ml-[80%] mb-[1.5%] rounded-md my-[3%]"
+                        onClick={handleCreate}>Create</button>
 
                     </div>
                 </div>

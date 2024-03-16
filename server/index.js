@@ -1,10 +1,10 @@
 const PythonShell = require('python-shell').PythonShell;
 const express = require('express');
 const cors = require('cors');
-const multer = require('multer'); // Import multer for handling file uploads
-const xlsx = require('xlsx'); // Import xlsx to work with Excel files
-const mongoose = require('mongoose'); // MongoDB ODM
-const Interviewee = require('./models/interviewee'); // MongoDB model for interviewees
+const multer = require('multer'); 
+const xlsx = require('xlsx');
+const mongoose = require('mongoose'); 
+const Interviewee = require('./models/interviewee'); 
 const app = express();
 const port = 3000;
 const connecDb = require('./config/connect.js');
@@ -12,13 +12,11 @@ connecDb();
 app.use(cors());
 app.use(express.json());
 
-// Configure multer for file uploads
 const upload = multer({ storage: multer.memoryStorage() });
 
 const EditorRoutes = require('./routes/EditorRoutes');
 app.use('/editor', EditorRoutes);
 
-// Define a route for uploading Excel files
 app.post('/upload', upload.single('file'), async (req, res) => {
     if (!req.file) {
         return res.status(400).send('No file uploaded.');
@@ -51,7 +49,6 @@ app.get('/interviewees', async (req, res) => {
   const userId = req.body.userId;
   try {
     const interviewees = await Interviewee.find({ userId });
-    // const interviewees = await Interviewee.find({});
     res.json(interviewees);
   } catch (error) {
     console.error('Failed to retrieve interviewees:', error);

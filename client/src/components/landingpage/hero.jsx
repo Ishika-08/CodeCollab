@@ -42,6 +42,8 @@ export default function hero() {
                         </a>
                     </div>
                 </div>
+
+
                 <div >
                     <img className=" h-[50%]  w-[70%] rounded-3xl shadow-lg mt-[-22%] ml-[43%] " src="public\images\interview.jpg" alt="interview-img" />
                 </div>

@@ -29,7 +29,7 @@ export default function Login() {
         signInWithEmailAndPassword(auth, input.email, input.password)
         .then((userCredential) => {
            console.log(userCredential);
-            navigate("/");
+            navigate("/dashboard");
         }).catch((error) => {
             alert(error.message)
         });

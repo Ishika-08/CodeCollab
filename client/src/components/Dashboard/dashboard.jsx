@@ -1,7 +1,14 @@
 import Navbar from "./Navbar";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Dashboard() {
+    const navigate = useNavigate();
+
+    const handleSchedule = () => {
+        navigate("/interviewer-form");
+    }
+
     return (
         <div>
             <Navbar />
@@ -18,7 +25,7 @@ export default function Dashboard() {
                         <h1 className="text-xl text-gray-800">Get Started</h1>
                         <p className="text-gray-500">
                             Join us in shaping the future of your career. Let's schedule your next interview and take the next step towards finding your perfect fit.</p>
-                        <button className="bg-green-500/[.8] text-white p-1 ml-[80%] mb-[1.5%] rounded-md my-[3%]">Schedule</button>
+                        <button className="bg-green-500/[.8] text-white p-1 ml-[80%] mb-[1.5%] rounded-md my-[3%]" onClick={handleSchedule}>Schedule</button>
 
                     </div>
 

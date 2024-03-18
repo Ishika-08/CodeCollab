@@ -1,1 +1,1 @@
-print("he;;p")
+print(5+5)

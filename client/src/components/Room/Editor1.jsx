@@ -62,9 +62,6 @@ const Editor1 = ({ socketRef, roomId, initialCode }) => {
     socketRef.current.emit(ACTIONS.CODE_CHANGE, { roomId, code: value });
   };
 
-
-
-
   return (
     <div className='my-5' >
       <div className="container mx-auto">

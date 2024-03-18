@@ -6,10 +6,14 @@ import LandingPage from "./Pages/landingPage";
 import AboutUs from "./components/landingpage/AboutUs";
 import Editor from "./Pages/Editor/Editor";
 import Form  from './Pages/form'
+
+import Dashboard from "./components/Dashboard/dashboard";
+
 import { Toaster } from 'react-hot-toast';
 import Home from "./Pages/Room/Home";
 import EditorPage from "./Pages/Room/EditorPage";
 import "./App.css";
+
 
 
  export default function App() {
@@ -36,10 +40,14 @@ import "./App.css";
           <Route path="/about" element={<AboutUs />} />
           {/* <Route path="/reset-password" element={<ResetPassword />} /> */}
           <Route path="/editor" element={<Editor />} />
+
+          <Route path="/dashboard" element={<Dashboard />} />
+
           <Route path="/" element={<Home />}></Route>
           <Route path="/editor/:roomId" element={<EditorPage />}></Route>
           <Route path="/interviewer-form" element={<Form/>} />
           <Route path="/room" element={<Home />} />
+
        </Routes>
      </Router>
 </>

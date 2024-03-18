@@ -29,7 +29,7 @@ export default function Register() {
         createUserWithEmailAndPassword(auth, input.email, input.password)
         .then((userCredential) => {
            console.log(userCredential);
-            navigate("/");
+            navigate("/dashboard");
         }).catch((error) => {
             console.log(error)
         });
@@ -54,7 +54,7 @@ export default function Register() {
                         onSubmit={handleSubmit}
                     >
                         <p className="text-center text-lg font-medium">
-                            Log in to your account
+                            Register to your account
                         </p>
 
                         <div>

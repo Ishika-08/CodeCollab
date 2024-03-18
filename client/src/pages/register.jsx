@@ -54,7 +54,7 @@ export default function Register() {
                         onSubmit={handleSubmit}
                     >
                         <p className="text-center text-lg font-medium">
-                            Log in to your account
+                            Register to your account
                         </p>
 
                         <div>

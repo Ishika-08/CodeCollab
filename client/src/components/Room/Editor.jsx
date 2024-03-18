@@ -1,3 +1,4 @@
+// Editor.js
 import React, { useEffect, useRef } from 'react';
 import Editor1 from './Editor1';
 import { EditorState, EditorView, basicSetup } from '@codemirror/basic-setup';
@@ -12,25 +13,35 @@ const ACTIONS = {
     LEAVE: 'leave',
 };
 
-const Editor = ({ socketRef, roomId, onCodeChange }) => {
+const Editor = ({ socketRef, roomId, initialCode }) => {
     const editorRef = useRef(null);
 
     useEffect(() => {
         async function init() {
+            const extensions = [
+                basicSetup,
+                javascript(),
+            ];
+
+            console.log('initialCode', initialCode);
+
+            const parentElement = document.getElementById('realtimeEditor');
+            if (!parentElement) {
+                console.error("Parent element not found");
+                return;
+            }
+
             editorRef.current = new EditorView({
                 state: EditorState.create({
-                    doc: '',
-                    extensions: [
-                        basicSetup,
-                        javascript(),
-                    ],
+                    doc: initialCode,
+                    extensions,
                 }),
-                parent: document.getElementById('realtimeEditor'),
+                parent: parentElement,
             });
 
             editorRef.current.on('change', (changes) => {
                 const code = editorRef.current.state.doc.toString();
-                onCodeChange(code);
+                console.log(changes)
                 socketRef.current.emit(ACTIONS.CODE_CHANGE, {
                     roomId,
                     code,
@@ -38,15 +49,23 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
             });
         }
 
+
         init();
     }, []);
 
+
+
     useEffect(() => {
-        if (socketRef.current) {
+        if (editorRef.current && socketRef.current) {
             socketRef.current.on(ACTIONS.CODE_CHANGE, ({ code }) => {
-                if (code !== null) {
-                    editorRef.current.setValue(code);
-                }
+                console.log('Received code change', code);
+                editorRef.current.dispatch({
+                    changes: {
+                        from: 0,
+                        to: editorRef.current.state.doc.length,
+                        insert: code,
+                    },
+                });
             });
 
             // Cleanup function for socket event listener
@@ -54,7 +73,7 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
                 socketRef.current.off(ACTIONS.CODE_CHANGE);
             };
         }
-    }, [socketRef.current]); // Provide socketRef.current as a dependency
+    }, [socketRef.current, editorRef.current]); // Provide socketRef.current as a dependency
 
     // return <textarea id="realtimeEditor"></textarea>;
     return <Editor1 id="realtimeEditor" />;

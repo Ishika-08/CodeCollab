@@ -105,8 +105,8 @@ export default function AboutUs() {
                     </p></Link>
                 </div>
             </div>
-            <footer class="bg-green-600 text-white text-center py-4">
-                <p className='text-lg text-center p-1  '>Alpha-Byte@2024</p>
+            <footer class="w-full relative bg-green-600 text-white text-center py-4">
+                <p className='text-lg text-center  '>Alpha-byte@2024</p>
             </footer>
         </section>
 

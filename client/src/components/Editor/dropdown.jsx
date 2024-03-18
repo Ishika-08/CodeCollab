@@ -1,17 +1,26 @@
-import { Fragment } from 'react'
-import { Menu, Transition } from '@headlessui/react'
+import { Fragment, useState } from 'react';
+import { Menu, Transition } from '@headlessui/react';
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
 
-export default function Example() {
+export default function Example({ onLanguageChange }) {
+  const [language, setLanguage] = useState('C++'); 
+
+  const handleLanguageChange = (selectedLanguage) => {
+    setLanguage(selectedLanguage);
+    onLanguageChange(selectedLanguage); 
+  };
+
+  const LanguageArray = ['C++', 'Java', 'Python'];
+
   return (
-    <Menu as="div" className="relative inline-block text-left m-2">
+    <Menu as="div" className="relative inline-block text-left mx-2 mt-[-12px]">
       <div>
         <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-3 text-l font-semibold shadow-sm ring-1 ring-inset ring-gray-300 hover:shadow-lg">
-          Choose Language
+          {language || 'Choose Language'} 
           <IoIosArrowDropdownCircle className="m-1 h-5 w-5 text-black" aria-hidden="true" />
         </Menu.Button>
       </div>
@@ -27,50 +36,27 @@ export default function Example() {
       >
         <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
-            <Menu.Item>
+          {LanguageArray.map((lang) => (
+            <Menu.Item key={lang}>
               {({ active }) => (
                 <a
                   href="#"
+                  onClick={() => handleLanguageChange(lang)} 
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block px-4 py-2 text-sm'
                   )}
                 >
-                  C++
+                  {lang}
                 </a>
               )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                  Java
-                </a>
-              )}
-            </Menu.Item>
-            <form method="POST" action="#">
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    type="submit"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'block w-full px-4 py-2 text-left text-sm'
-                    )}
-                  >
-                    Python
-                  </button>
-                )}
-              </Menu.Item>
-            </form>
+            </Menu.Item>))
+            }
+            
           </div>
         </Menu.Items>
       </Transition>
     </Menu>
-  )
+  );
 }
+

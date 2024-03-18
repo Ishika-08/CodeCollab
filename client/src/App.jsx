@@ -5,6 +5,7 @@ import ResetPassword from "./Pages/resetPassword";
 import LandingPage from "./Pages/landingPage";
 import AboutUs from "./components/landingpage/AboutUs";
 import Editor from "./Pages/Editor/Editor";
+import Editor1 from "./Pages/Editor/Editor1";
 import Form from './Pages/form'
 
 import Dashboard from "./components/Dashboard/dashboard";
@@ -40,6 +41,7 @@ export default function App() {
                     <Route path="/about" element={<AboutUs />} />
                     {/* <Route path="/reset-password" element={<ResetPassword />} /> */}
                     <Route path="/editor" element={<Editor />} />
+                    <Route path="/editor1" element={<Editor1 />} />
 
                     <Route path="/dashboard" element={<Dashboard />} />
 

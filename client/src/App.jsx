@@ -5,7 +5,7 @@ import ResetPassword from "./Pages/resetPassword";
 import LandingPage from "./Pages/landingPage";
 import AboutUs from "./components/landingpage/AboutUs";
 import Editor from "./Pages/Editor/Editor";
-import Form  from './Pages/form'
+import Form from './Pages/form'
 
 import Dashboard from "./components/Dashboard/dashboard";
 
@@ -16,10 +16,10 @@ import "./App.css";
 
 
 
- export default function App() {
-   return (
-    <>
-    <div>
+export default function App() {
+    return (
+        <>
+            <div>
                 <Toaster
                     position="top-right"
                     toastOptions={{
@@ -31,26 +31,26 @@ import "./App.css";
                     }}
                 ></Toaster>
             </div>
-     <Router>
-       <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-         <Route path="/reset-password" element={<ResetPassword />} />
-         <Route path="/" element={<LandingPage />} />
-          <Route path="/about" element={<AboutUs />} />
-          {/* <Route path="/reset-password" element={<ResetPassword />} /> */}
-          <Route path="/editor" element={<Editor />} />
+            <Router>
+                <Routes>
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/reset-password" element={<ResetPassword />} />
+                    <Route path="/" element={<LandingPage />} />
+                    <Route path="/about" element={<AboutUs />} />
+                    {/* <Route path="/reset-password" element={<ResetPassword />} /> */}
+                    <Route path="/editor" element={<Editor />} />
 
-          <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
 
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/editor/:roomId" element={<EditorPage />}></Route>
-          <Route path="/interviewer-form" element={<Form/>} />
-          <Route path="/room" element={<Home />} />
+                    <Route path="/" element={<Home />}></Route>
+                    <Route path="/editor/:roomId" element={<EditorPage />}></Route>
+                    <Route path="/interviewer-form" element={<Form />} />
+                    <Route path="/room" element={<Home />} />
 
-       </Routes>
-     </Router>
-</>
-   );
-  }
+                </Routes>
+            </Router>
+        </>
+    );
+}
 

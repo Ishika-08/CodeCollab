@@ -1,7 +1,10 @@
+// EditorPage.js
+
+// Import useState hook
 import React, { useState, useRef, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import Client from '../../components/Room/Client';
-import Editor from '../../components/Room/Editor';
+import Editor1 from '../../components/Room/Editor1';
 import { initSocket } from '../../socket';
 import {
     useLocation,
@@ -9,21 +12,24 @@ import {
     Navigate,
     useParams,
 } from 'react-router-dom';
+
 const ACTIONS = {
     JOIN: 'join',
     JOINED: 'joined',
     DISCONNECTED: 'disconnected',
-    CODE_CHANGE: 'code-change',
+    CODE_CHANGE: 'code-change', // Import code change action
     SYNC_CODE: 'sync-code',
     LEAVE: 'leave',
 };
+
 const EditorPage = () => {
     const socketRef = useRef(null);
-    const codeRef = useRef(null);
+    const codeRef = useRef('');
     const location = useLocation();
     const { roomId } = useParams();
     const reactNavigator = useNavigate();
     const [clients, setClients] = useState([]);
+    const [code, setCode] = useState(''); // Add state for code
 
     useEffect(() => {
         const init = async () => {
@@ -42,23 +48,19 @@ const EditorPage = () => {
                 username: location.state?.username,
             });
 
-            // Listening for joined event
             socketRef.current.on(
                 ACTIONS.JOINED,
-                ({ clients, username, socketId }) => {
+                ({ clients, username, socketId, code }) => {
                     if (username !== location.state?.username) {
                         toast.success(`${username} joined the room.`);
                         console.log(`${username} joined`);
                     }
                     setClients(clients);
-                    socketRef.current.emit(ACTIONS.SYNC_CODE, {
-                        code: codeRef.current,
-                        socketId,
-                    });
+                    codeRef.current = code;
+                    setCode(code); // Update code state
                 }
             );
 
-            // Listening for disconnected
             socketRef.current.on(
                 ACTIONS.DISCONNECTED,
                 ({ socketId, username }) => {
@@ -70,19 +72,25 @@ const EditorPage = () => {
                     });
                 }
             );
+
+            // Handle code change event
+            socketRef.current.on(ACTIONS.CODE_CHANGE, ({ code }) => {
+                console.log('Received code change', code);
+                setCode(code); // Update the code state with the received code
+            });
         };
         init();
 
-        // Cleanup function
+
         return () => {
             if (socketRef.current) {
                 socketRef.current.disconnect();
                 socketRef.current.off(ACTIONS.JOINED);
                 socketRef.current.off(ACTIONS.DISCONNECTED);
+                socketRef.current.off(ACTIONS.CODE_CHANGE);
             }
         };
     }, []);
-
 
     async function copyRoomId() {
         try {
@@ -127,12 +135,10 @@ const EditorPage = () => {
                 </button>
             </div>
             <div className="editorWrap">
-                <Editor
+                <Editor1
                     socketRef={socketRef}
                     roomId={roomId}
-                    onCodeChange={(code) => {
-                        codeRef.current = code;
-                    }}
+                    initialCode={code} // Pass code as initialCode
                 />
             </div>
         </div>

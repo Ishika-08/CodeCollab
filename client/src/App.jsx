@@ -2,10 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./Pages/login";
 import Register from "./Pages/register";
 import ResetPassword from "./Pages/resetPassword";
-import LandingPage from "./pages/landingPage";
+import LandingPage from "./Pages/landingPage";
 import AboutUs from "./components/landingpage/AboutUs";
 import Editor from "./Pages/Editor/Editor";
-import Form  from './pages/form'
+import Form  from './Pages/form'
 import { Toaster } from 'react-hot-toast';
 import Home from "./Pages/Room/Home";
 import EditorPage from "./Pages/Room/EditorPage";

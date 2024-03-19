@@ -1,18 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./Pages/login";
-import Register from "./Pages/register";
-import ResetPassword from "./Pages/resetPassword";
-import LandingPage from "./Pages/landingPage";
+import Login from "./pages/login";
+import Register from "./pages/register";
+import ResetPassword from "./pages/resetPassword";
+import LandingPage from "./pages/landingPage";
 import AboutUs from "./components/landingpage/AboutUs";
-import Editor from "./Pages/Editor/Editor";
-import Editor1 from "./Pages/Editor/Editor1";
-import Form from './Pages/form'
+import Editor from "./pages/Editor/Editor";
+import Editor1 from "./pages/Editor/Editor1";
+import Form from './pages/form'
 
 import Dashboard from "./components/Dashboard/dashboard";
 
 import { Toaster } from 'react-hot-toast';
-import Home from "./Pages/Room/Home";
-import EditorPage from "./Pages/Room/EditorPage";
+import Home from "./pages/Room/Home";
+import EditorPage from "./pages/Room/EditorPage";
 import "./App.css";
 
 
